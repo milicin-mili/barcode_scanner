@@ -1,3 +1,3 @@
 abstract class BarcodeScanner {
-  String scan();
+  Future<String?> scan();
 }

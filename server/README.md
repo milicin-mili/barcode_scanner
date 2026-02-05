@@ -20,17 +20,3 @@ npm run start
 
 - `GET /health` — проверка статуса.
 - `GET /products/:barcode` — информация о товаре по штрихкоду.
-
-Пример ответа:
-
-```json
-{
-  "barcode": "5901234123457",
-  "name": "Кроссовки Trail Run",
-  "imageUrl": "https://picsum.photos/seed/trail-run/600/400",
-  "sizes": [
-    { "size": "39", "qty": 4 },
-    { "size": "40", "qty": 2 }
-  ]
-}
-```

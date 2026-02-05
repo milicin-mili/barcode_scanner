@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/navigation/app_navigator.dart';
 import '../features/barcode/presentation/barcode_page.dart';
 import 'theme.dart';
 
@@ -11,6 +12,7 @@ class BarcodeScannerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Barcode Scanner',
       debugShowCheckedModeBanner: false,
+      navigatorKey: AppNavigator.key,
       theme: buildAppTheme(),
       home: const BarcodePage(),
     );

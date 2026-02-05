@@ -39,8 +39,20 @@ class BarcodePage extends ConsumerWidget {
                     : () => ref
                         .read(barcodeControllerProvider.notifier)
                         .scan(),
-                icon: const Icon(Icons.qr_code_scanner),
-                label: const Text('Сканировать штрихкод'),
+                icon: const Icon(Icons.camera_alt),
+                label: const Text('Сканировать камерой'),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: state.isLoading
+                    ? null
+                    : () => ref
+                        .read(barcodeControllerProvider.notifier)
+                        .scan(
+                          scanner: ref.read(mockBarcodeScannerProvider),
+                        ),
+                icon: const Icon(Icons.qr_code),
+                label: const Text('Тестовый штрихкод'),
               ),
               const SizedBox(height: 20),
               if (state.isLoading)

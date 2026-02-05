@@ -1,16 +1,20 @@
-# barcode_scanner
+# Превью проекта
 
-A Barcode scanner app
+[resources/video.mp4](resources/video.mp4)
 
-## Getting Started
+## Описание
 
-This project is a starting point for a Flutter application.
+Штрихкод сканнер для мобильных устройств на Flutter/Dart с использованием библиотеки состояния riverpod и библиотеки для сканирования штрихкодов.
 
-A few resources to get you started if this is your first Flutter project:
+## Сервер
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Сервер на NestJS с использованием библиотеки для работы с базами данных SQLite.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Режимы работы
+
+В приложении есть два режима работы:
+
+- emulator (Для работы с эмулятором)
+- localNetwork (Для работы с локальной сетью)
+
+Их можно изменить в файле [lib/core/config/app_config.dart](lib/core/config/app_config.dart).

@@ -10,9 +10,10 @@ import '../domain/repositories/product_repository.dart';
 import '../domain/services/barcode_scanner.dart';
 import '../presentation/barcode_controller.dart';
 import '../presentation/barcode_state.dart';
+import '../presentation/camera_barcode_scanner.dart';
 
 final appConfigProvider = Provider<AppConfig>((ref) {
-  return const AppConfig(apiBaseUrl: 'http://10.0.2.2:3000');
+  return AppConfig.current();
 });
 
 final httpClientProvider = Provider<http.Client>((ref) {
@@ -36,6 +37,10 @@ final productRepositoryProvider = Provider<ProductRepository>((ref) {
 });
 
 final barcodeScannerProvider = Provider<BarcodeScanner>((ref) {
+  return CameraBarcodeScanner();
+});
+
+final mockBarcodeScannerProvider = Provider<BarcodeScanner>((ref) {
   return MockBarcodeScanner([
     '5901234123457',
     '4006381333931',

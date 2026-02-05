@@ -15,24 +15,40 @@ class BarcodeController extends StateNotifier<BarcodeState> {
 
   final ProductRepository _repository;
   final BarcodeScanner _scanner;
+  bool _isScanning = false;
 
-  Future<void> scan() async {
-    final barcode = _scanner.scan();
+  Future<void> scan({BarcodeScanner? scanner}) async {
+    if (state.isLoading || _isScanning) {
+      return;
+    }
 
-    state = state.copyWith(
+    state = state.copyWith(errorMessage: null);
+
+    final scannerToUse = scanner ?? _scanner;
+    String? barcode;
+    try {
+      _isScanning = true;
+      barcode = await scannerToUse.scan();
+    } catch (error) {
+      _isScanning = false;
+      state = state.copyWith(
+        errorMessage: 'Не удалось открыть камеру: $error',
+        isLoading: false,
+      );
+      return;
+    }
+    _isScanning = false;
+
+    if (barcode == null || barcode.isEmpty) {
+      return;
+    }
+
+    state = BarcodeState(
       lastBarcode: barcode,
       product: null,
       errorMessage: null,
       isLoading: true,
     );
-
-    if (barcode.isEmpty) {
-      state = state.copyWith(
-        errorMessage: 'Нет доступных штрихкодов для сканирования.',
-        isLoading: false,
-      );
-      return;
-    }
 
     try {
       final product = await _repository.getProduct(barcode);

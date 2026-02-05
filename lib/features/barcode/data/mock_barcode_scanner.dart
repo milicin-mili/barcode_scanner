@@ -7,9 +7,9 @@ class MockBarcodeScanner implements BarcodeScanner {
   int _index = 0;
 
   @override
-  String scan() {
+  Future<String?> scan() async {
     if (_barcodes.isEmpty) {
-      return '';
+      return null;
     }
     final code = _barcodes[_index];
     _index = (_index + 1) % _barcodes.length;

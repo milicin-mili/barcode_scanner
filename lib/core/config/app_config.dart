@@ -9,7 +9,7 @@ class AppConfig {
     required this.environment,
   });
 
-  // INFO: Тут можно изменить на localNetworkBaseURL установив ApiEnvironment.localNetwork
+  // INFO: Тут можно изменить на localNetworkBaseUrl установив ApiEnvironment.localNetwork
   // INFO: Или на emulatorBaseURL установив ApiEnvironment.emulator
   static const ApiEnvironment currentEnvironment = ApiEnvironment.emulator;
 

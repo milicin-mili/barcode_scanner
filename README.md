@@ -1,6 +1,8 @@
 # Превью проекта
 
-[resources/video.mp4](resources/video.mp4)
+<video src="resources/video.mp4" width="600" controls>
+  Ваш браузер не поддерживает видео.
+</video>
 
 ## Описание
 

@@ -20,3 +20,17 @@
 - localNetwork (Для работы с локальной сетью)
 
 Их можно изменить в файле [lib/core/config/app_config.dart](lib/core/config/app_config.dart).
+
+## Запуск
+
+Для запуска приложения нужно запустить сервер и приложение.
+
+### Сервер
+
+Для запуска сервера нужно запустить файл [server/main.ts](server/main.ts).
+Комманда: `npm run start`
+
+### Приложение
+
+Для запуска приложения нужно запустить файл [lib/main.dart](lib/main.dart).
+Комманда: `flutter run`
